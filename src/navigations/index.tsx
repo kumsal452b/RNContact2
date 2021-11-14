@@ -23,13 +23,14 @@ export default class AppNavContainer extends React.Component<IProps,IState> {
   private isLogin=true
   componentDidMount(){
       const {authState:{isLoggedIn}} =this.context;
+      console.log(isLoggedIn);
+      
       this.setState({loggedState:isLoggedIn})
   }
   render() {
-    const isLogin = true;
     return (
       <NavigationContainer>
-        {this.isLogin ? <DrawerNavigator /> : <AuthNavigator />}
+        {this.state.loggedState? <DrawerNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     );
   }
