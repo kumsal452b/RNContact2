@@ -2,30 +2,20 @@ import React from "react"
 import { NavigationContainer } from "@react-navigation/native"
 import { Text, View } from "react-native"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Contact = () => {
-    return (
-        <View>
-            <Text>Contact</Text>
-        </View>
-    );
-}
-const ContactDetail = () => {
-    return (
-        <View>
-            <Text>ContactDetail</Text>
-        </View>
-    );
-}
-
-
+import { CONTACT_DETAIL, CONTACT_LIST, CREATE_CONTACT, SETTINGS } from "../constants/routerNames";
+import Contact from "../screens/Contacts";
+import ContactDetail from "../screens/ContactsDetails";
+import CreateContact from "../screens/CreateContact";
+import Settıngs from "../screens/Settings";
 
 const HomeNavigator = () => {
     const HomeStack = createNativeStackNavigator();
     return (
-        <HomeStack.Navigator initialRouteName={'Contact'}>
-            <HomeStack.Screen name="Contact" component={Contact} />
-            <HomeStack.Screen name="ContactDetail" component={ContactDetail} />
+        <HomeStack.Navigator initialRouteName={CONTACT_LIST}>
+            <HomeStack.Screen name={CONTACT_LIST} component={Contact} />
+            <HomeStack.Screen name={CONTACT_DETAIL} component={ContactDetail} />
+            <HomeStack.Screen name={CREATE_CONTACT} component={CreateContact} />
+            <HomeStack.Screen name={SETTINGS} component={Settıngs} />
         </HomeStack.Navigator>
     )
 }
